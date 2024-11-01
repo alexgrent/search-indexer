@@ -290,22 +290,21 @@
     </build>
 
     <!--Configures the distribution to nexus repository -->
-         <distributionManagement>
-             <repository>
-                 <id>nexus-releases</id>
-                 <url>http://localhost:8081/repository/maven-releases/</url>
-             </repository>
-             <snapshotRepository>
+    <distributionManagement>
+         <repository>
+                  <id>nexus-releases</id>
+                  <url>http://localhost:8081/repository/maven-releases/</url>
+         </repository>
+         <snapshotRepository>
                  <id>nexus-snapshots</id>
                  <url>http://localhost:8081/repository/maven-snapshots/</url>
-             </snapshotRepository>
+         </snapshotRepository>
              <site>
                  <id>nexus-site</id>
                  <url>dav:http://localhost:8081/nexus/content/sites/site/</url>
              </site>
-         </distributionManagement>
-
-
+    </distributionManagement>
+         
     <!--Maven site-->
     <reporting>
         <plugins>
