@@ -7,7 +7,7 @@
     <artifactId>search-indexer</artifactId>
 
     <packaging>jar</packaging>
-    <version>4.490.0</version>
+    <version>4.491.0</version>
     <name>search-indexer</name>
 
     <parent>
