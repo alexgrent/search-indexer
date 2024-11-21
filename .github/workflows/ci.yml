@@ -1,0 +1,33 @@
+name: Java Maven Build & Publish Artifacts
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the code
+      - uses: actions/checkout@v3
+
+      # Set up Java environment
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      # Build the Maven project
+      - name: Build Maven
+        run: mvn -B package --file pom.xml
+
+      # Copy the JAR file to a staging directory
+      - name: Prepare Artifact
+        run: mkdir staging && cp target/*.jar staging
+
+      # Publish the JAR file as an artifact
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Maven Package
+          path: staging
